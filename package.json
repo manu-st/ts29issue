@@ -1,0 +1,61 @@
+{
+  "engines": {
+    "node": "8.5.0",
+    "yarn": "1.2.1"
+  },
+  "scripts": {
+    "build": "build --dir",
+    "lint": "tslint --fix --project ./tsconfig.json",
+    "postinstall": "yarn rebuild && yarn webpack",
+    "rebuild": "electron-builder install-app-deps",
+    "start": "electron main.js",
+    "webpack": "webpack --config webpack.config.js --mode production"
+  },
+  "dependencies": {
+    "@types/react": "^16.3.17",
+    "mobx": "5.0.0",
+    "mobx-react": "^5.2.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "devDependencies": {
+    "7zip-bin-win": "2.2.0",
+    "electron": "2.0.2",
+    "electron-builder": "20.14.7",
+    "file-loader": "1.1.11",
+    "fork-ts-checker-webpack-plugin": "0.4.1",
+    "json-loader": "0.5.7",
+    "node-loader": "0.6.0",
+    "node-sass": "4.9.0",
+    "progress-bar-webpack-plugin": "1.11.0",
+    "ts-loader": "4.3.0",
+    "tslint": "5.10.0",
+    "tslint-consistent-codestyle": "1.13.0",
+    "tslint-eslint-rules": "5.3.1",
+    "tslint-react": "3.6.0",
+    "typescript": "3.0.0-dev.20180607",
+    "webpack": "4.8.3",
+    "webpack-cli": "2.1.4",
+    "webpack-node-externals": "1.7.2"
+  },
+  "build": {
+    "appId": "com.test",
+    "buildVersion": "1.0.0.0",
+    "npmRebuild": false,
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "license": "installer_eula.rtf",
+      "oneClick": false,
+      "perMachine": true
+    },
+    "files": [
+      "webpack",
+      "index.html",
+      "main.js"
+    ]
+  }
+}

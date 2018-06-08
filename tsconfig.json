@@ -1,0 +1,30 @@
+{
+   "compilerOptions": {
+      "allowSyntheticDefaultImports": false,
+      "allowJs": true,
+      "experimentalDecorators": true,
+      "outDir": "./dist/",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "module": "commonjs",
+      "target": "es2017",
+      "jsx": "react",
+      "moduleResolution": "node",
+      "alwaysStrict": true,
+      "strict": true,
+      "strictFunctionTypes": false,
+      "pretty": true,
+      "lib": [
+         "dom",
+         "dom.iterable",
+         "scripthost",
+         "es2017"
+      ]
+   },
+   "include": [
+      "./src/**/*"
+   ],
+   "exclude": [
+      "node_modules"
+   ]
+}

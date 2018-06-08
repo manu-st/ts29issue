@@ -1,0 +1,178 @@
+{
+   "defaultSeverity": "error",
+   "extends": [
+      "tslint-eslint-rules", "tslint:recommended", "tslint-react", "tslint-consistent-codestyle"
+   ],
+   "jsRules": {},
+   "options": {
+      "project": "tsconfig.json",
+      "typeCheck": true
+   },
+   "rules": {
+      "align": [ true, "parameters", "statements", "arguments", "members", "elements" ],
+      "await-promise": true,
+      "ban-comma-operator": true,
+      "binary-expression-operand-order": true,
+      "callable-types": true,
+      "cyclomatic-complexity": true,
+      "deprecation": true,
+      "encoding": true,
+      "eofline": true,
+      "indent": [ true, "spaces", 3 ],
+      "interface-over-type-literal": true,
+      "linebreak-style": [ true, "CRLF" ],
+      "max-classes-per-file": [ true, 2 ],
+      "max-line-length": [ true, 150 ],
+      "member-access": false,
+      "member-ordering": 
+         [true, {
+            "order": [
+               "public-instance-field",
+               "protected-instance-field",
+               "private-instance-field",
+               "constructor",
+               "instance-method",
+               "static-method"
+            ]
+         }],
+      "newline-before-return": true,
+      "number-literal-format": true,
+      "no-boolean-literal-compare": true,
+      "no-duplicate-imports": true,
+      "no-inferrable-types": [ true, "ignore-params", "ignore-properties" ],
+      "no-magic-numbers": [ true, -1, 0, 1, 2 ],
+      "no-namespace": false,
+      "no-console": { "severity": "warning" },
+      "no-debugger": { "severity": "warning" },
+      "no-duplicate-switch-case": true,
+      "no-floating-promises": true,
+      "no-for-in-array": true,
+      "no-implicit-dependencies": false,
+      "no-inferred-empty-object-type": true,
+      "no-internal-module": true,
+      "no-invalid-template-strings": true,
+      "no-irregular-whitespace": true,
+      "no-redundant-jsdoc": true,
+      "no-return-await": true,
+      "no-sparse-arrays": true,
+      "no-string-literal": true,
+      "no-this-assignment": true,
+      "no-unnecessary-callback-wrapper": true,
+      "no-unnecessary-class": true,
+      "no-unnecessary-qualifier": true,
+      "no-unnecessary-type-assertion": true,
+      "no-unused-variable": [ true ],
+      "no-var-requires": false,
+      "object-literal-key-quotes": [ true, "as-needed" ],
+      "object-literal-sort-keys": true,
+      "one-line": false,
+      "prefer-conditional-expression": true,
+      "prefer-function-over-method": true,
+      "prefer-object-spread": true,
+      "prefer-switch": true,
+      "prefer-template": true, 
+      "promise-function-async": true,
+      "restrict-plus-operands": true,
+      "space-before-function-paren": {
+         "options": {
+            "anonymous": "always",
+            "asyncArrow": "always",
+            "constructor": "always",
+            "method": "always",
+            "named": "always"
+         }
+       },
+      "space-within-parens": [ true, 0 ],
+      "strict-boolean-expressions": [ true, "allow-null-union", "allow-undefined-union", "allow-string", "allow-mix" ],
+      "strict-type-predicates": true,
+      "switch-default": true,
+      "switch-final-break": [ true, "always" ],
+      "whitespace": [ true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-rest-spread", "check-type", "check-typecast", "check-type-operator", "check-preblock" ],
+      // tslint-react
+      "jsx-alignment": true,
+      "jsx-boolean-value": true,
+      "jsx-curly-spacing": [ true, "always" ],
+      "jsx-equals-spacing": [ true, "always" ],
+      "jsx-key": true,
+      "jsx-no-lambda": true,
+      "jsx-no-multiline-js": true,
+      "jsx-no-string-ref": true,
+      "jsx-self-close": true,
+      "jsx-wrap-multiline": true,
+      // tslint-eslint-rules
+      "no-constant-condition": true,
+      "no-duplicate-case": true,
+      "no-empty-character-class": true,
+      "no-ex-assign": true,
+      "no-extra-boolean-cast": true,
+      "no-extra-semi": true,
+      "no-invalid-regexp": true,
+      "no-regex-spaces": true,
+      "no-unexpected-multiline": true,
+      "handle-callback-err": true,
+      "array-bracket-spacing": [ true, "always" ],
+      "block-spacing": [
+         true,
+         "always"
+      ],
+      "brace-style": [
+         true,
+         "allman",
+         {
+            "allowSingleLine": false
+         }
+      ],
+      "object-curly-spacing": [
+        true,
+        "always"
+      ],
+      "space-in-parens": [ true, "never" ],
+      "ter-arrow-parens": [true, "always"],
+      "ter-arrow-spacing": [ true ],
+      "ter-func-call-spacing": [ true, "always" ],
+      "ter-indent": [ true, 3 ],
+      "ter-prefer-arrow-callback": [ true ],
+      "ter-no-tabs": true,
+      "trailing-comma": [ true, { "multiline": "always", "singleline": "never", "esSpecCompliant": true}],
+      // tslint-consistent-codestyle
+      "naming-convention": [
+        true,
+        // forbid leading and trailing underscores and enforce camelCase on EVERY name. will be overridden by subtypes if needed
+        // regex: forbid variable names with length < 2, except e, i, j, k, n, x, y, T (commonly used in loops, counts, exceptions, template)
+        {"type": "default", "regex": "^(.{2,})|(e)|(i)|(j)|(k)|(n)|(x)|(y)|(T)$", "format": ["camelCase", "PascalCase"], "leadingUnderscore": "forbid", "trailingUnderscore": "forbid" },
+        // require all global constants to be camelCase or UPPER_CASE
+        // all other variables and functions still need to be camelCase
+        {"type": "variable", "modifiers": ["global", "const"], "format": ["camelCase","UPPER_CASE"] },
+        // override the above format option for exported constants to allow only UPPER_CASE
+        {"type": "variable", "modifiers": ["export", "const"], "format": ["UPPER_CASE"] },
+        {"type": "method", "format": ["camelCase"] },
+        // exclicitly disable the format check only for method toJSON
+        {"type": "method", "filter": "^toJSON$", "format": null },
+        // enforce UPPER_CASE for all public static readonly(!) properties
+        {"type": "property", "modifiers": ["public", "static", "const"], "format": "UPPER_CASE"},
+        // enforce PascalCase for classes, interfaces, enums, etc. Remember, there are still no underscores allowed.
+        {"type": "type", "format": "PascalCase"},
+        // abstract classes must have the prefix "Abstract". The following part of the name must be valid PascalCase
+        {"type": "class", "modifiers": "abstract", "prefix": "Abstract" },
+        // interface names must start with "I". The following part of the name must be valid PascalCase
+        {"type": "interface", "prefix": "I"},
+        // generic type parameters must start with "T"
+        // most of the time it will only be T, which is totally valid, because an empty string conforms to the PascalCase check
+        // By convention T, U and V are used for generics. You could enforce that with "regex": "^[TUV]$" and if you are care that much for performance, you could disable every other check by setting a falsy value
+        {"type": "genericTypeParameter", "prefix": "T"},
+        // enum members must be in PascalCase. Without this config, enumMember would inherit UPPER_CASE from public static const property
+        {"type": "enumMember", "format": "UPPER_CASE"},
+        {"type": "functionVariable", "modifiers": ["global", "const", "export"], "format": ["camelCase"]}
+      ],
+      "no-collapsible-if": true,
+      "no-else-after-return": true,
+      "no-return-undefined": true,
+      "no-unnecessary-else": true,
+      "no-unused": [ true, "ignore-parameters" ],
+      "no-var-before-return": true,
+      "prefer-const-enum": true,
+      "prefer-while": true,
+      "early-exit": [true, { "max-length": 5 }]
+   },
+   "rulesDirectory": []
+}
